@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choppies Supermarket Haatso Ghana - Groceries, Fresh-produce, Household-products"
+    <title>Enquiry - Choppies Supermarket</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Choppies Supermarket</h1>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Product and Service Enquiry</h2>
+
+            <p>
+                Please complete the form below if you have an enquiry
+                about our products or services.
+            </p>
+
+            <form id="enquiryForm">
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                 <span id="nameError" style="color:red; font-size:12px;"></span>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                 <span id="emailError" style="color:red; font-size:12px;"></span>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone">
+
+                <label for="enquiryType">Enquiry Type:</label>
+                <select id="enquiryType" name="enquiryType" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="products">Products</option>
+                    <option value="services">Services</option>
+                    <option value="stores">Store Information</option>
+                    <option value="other">Other</option>
+                </select>
+                 <span id="typeError" style="color:red; font-size:12px;"></span>
+
+                <label for="message">Your Enquiry:</label>
+                <textarea id="message" name="message" required></textarea>
+                <span id="messageError" style="color:red; font-size:12px;"></span>
+<p id="formSuccess" style="color:green; font-weight:bold;"></p>
+
+                <br><br>
+
+                <input type="submit" value="Submit Enquiry">
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Choppies Supermarket. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

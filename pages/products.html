@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/jpg" href="../image/Groceries.jpg"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Choppies Supermarket</title>
+   <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Choppies Supermarket</h1>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="../pages/enquiry.html">Enquiry</a>
+            <a href="../pages/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Our Products</h2>
+
+            <p>
+                Choppies Supermarket provides a variety of products
+                for customers.
+               
+            </p>
+        </section>
+
+          <input type="text" id="searchInput" placeholder="Search Choppies products..." 
+          style="padding:12px;width:100%;max-width:400px;margin:20px 0;border:2px solid #ddd;border-radius:8px;">
+
+        <section>
+         <div style="text-align: center; margin: 20px;">
+            <button class="tab-btn active" data-tab="all">Show All</button>
+            <button class="tab-btn" data-tab="groceries">Groceries</button>
+            <button class="tab-btn" data-tab="fresh">Fresh-produce</button>
+            <button class="tab-btn" data-tab="household">Household-products</button>
+            </div>
+            <h2>Product Categories</h2>
+
+            <article class="product-item" data-category="groceries">
+                <h3>Groceries</h3>
+
+                <img src="../image/Groceries.jpg"
+                    alt="Choppies supermarket products"
+                    style="border: 5px solid blue" width="400" height="390">
+                    
+                <p>
+                    Everyday grocery products for customers.
+                </p>
+            </article>
+
+            <article class="product-item" data-category="fresh">
+    <h3>Fresh Produce</h3>
+
+    <img src="../image/Fresh-produce.jpg"
+        alt="Fresh produce available at Choppies Supermarket"
+        style="border: 5px solid green;" width="430" height="400">
+
+    <p>
+        Fresh food products for everyday needs.
+    </p>
+</article>
+
+            <article class="product-item" data-category="household">
+    <h3>Household Products</h3>
+
+    <img src="../image/Household-products.jpg"
+        alt="Household products available at Choppies Supermarket"
+        style="border: 5px rgb(142, 126, 35);" width="500" height="510">
+
+    <p>
+        Products for household use and daily needs.
+    </p>
+</article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2026 Choppies Supermarket. All rights reserved.
+        </p>
+    </footer>
+   <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
+  <span onclick="closeLightbox()" style="position:absolute; top:20px; right:30px; color:white; font-size:50px; cursor:pointer;">&times;</span>
+  <img id="lightbox-img" style="max-width:85%; max-height:85%; border:5px solid white; border-radius:10px;">
+</div>
+
+<script>
+// WAIT FOR PAGE TO LOAD
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 1. FILTER BUTTONS
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const products = document.querySelectorAll('.product-item');
+  
+  if(tabBtns.length > 0){
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.tab;
+        products.forEach(p => {
+          if(filter === 'all' || p.dataset.category === filter){
+            p.style.display = 'block';
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // 2. SEARCH BUTTON - FIXED
+  const searchInput = document.querySelector('#searchInput, .search-input, input[type="search"]');
+  const searchBtn = document.querySelector('#searchBtn, .search-btn, button.search');
+  
+  if(searchInput){
+    function doSearch(){
+      const term = searchInput.value.toLowerCase();
+      products.forEach(p => {
+        const text = p.innerText.toLowerCase();
+        p.style.display = text.includes(term) ? 'block' : 'none';
+      });
+    }
+    if(searchBtn) searchBtn.addEventListener('click', doSearch);
+    searchInput.addEventListener('keyup', doSearch);
+  }
+
+  // 3. LIGHTBOX - CLICK IMAGE
+  const images = document.querySelectorAll('.product-item img');
+  images.forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').style.display = 'flex';
+    });
+  });
+
+});
+
+function closeLightbox(){
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+<style>
+.tab-btn{padding:10px 18px; margin:4px; border:none; background:#eee; border-radius:6px; cursor:pointer; font-weight:bold;}
+.tab-btn.active{background:#e4002b; color:white;}
+</style>
+
+</body>
+
+</html

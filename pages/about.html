@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choppies Supermarket Haatso Ghana - Groceries, Fresh-produce, Household-products"
+    <title>About Choppies Supermarket</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Choppies Supermarket</h1>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>About Choppies Supermarket</h2>
+
+            <p>
+                Choppies Supermarket is a retail organisation that provides
+                a variety of products and services to customers.
+            </p>
+
+            <p>
+                The organisation aims to provide customers with convenient
+                access to everyday products and services.
+
+               <div class="accordion">
+  <button class="acc-btn">Why Choose Choppies? ▼</button>
+  <div class="acc-content"><p>Affordable prices, fresh produce daily, friendly service in MRJ4+RM Haatso, Ghana.</p></div>
+  
+  <button class="acc-btn">Our History ▼</button>
+  <div class="acc-content"><p>Started in Botswana, now serving Haatso communities.</p></div>
+</div>
+
+<style>
+.acc-content {display:none; padding:10px; background:#f9f9f9;}
+.acc-btn {width:100%; text-align:left; padding:12px; background:#000000; color:white; border:none; margin-top:5px; cursor:pointer;}
+.acc-btn.active + .acc-content {display:block;}
+</style>
+
+<script>
+document.querySelectorAll('.acc-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{ btn.classList.toggle('active'); });
+});
+</script> 
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Choppies Supermarket. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

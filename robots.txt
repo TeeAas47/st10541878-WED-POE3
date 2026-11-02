@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TeeAas47.github.io/st10541878-WED-POE3/sitemap.xml
